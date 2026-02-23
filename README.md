@@ -1,1 +1,2 @@
-# ISS_lab
+Aplicatie Web pentru publicare articole
+
