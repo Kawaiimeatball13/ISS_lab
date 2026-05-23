@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8" />
+    <title>Agora &#238;n re&#355;ea</title>
+    <link rel="stylesheet" th:href="@{/styles/main_page_css.css}">
+    <link rel="stylesheet" th:href="@{/styles/page_layout_css.css}">
+    <link rel="stylesheet" th:href="@{/styles/menu_css.css}">
+    <link rel="stylesheet" th:href="@{/styles/main_page_css.css}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    const userId = /*[[${user.id}]]*/ 'default';
+    /*]]>*/
+</script>
+<div id="menu_bar">
+    <ul id="menu_content">
+        <li>
+            <div class="webiste_title"><a href="http://localhost:8080">Agora &#238;n re&#355;ea</a></div>
+        </li>
+        <li>
+            <div class="user_data">
+                <script th:src="@{/js/main_page.js}"></script>
+                <div class="user_photo"><img th:src="@{/images/placeholder.JPG}" alt="profile_picture" width="50" height="50"></div>
+                <div class="user_name" id="username_div" th:text="${user.name} + ' ' + ${user.familyName}" onclick="on_username_click()"></div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div id="entire_page">
+    <div id="entire_content">
+        <h1 id="title">~Agora &#238;n re&#355;ea~</h1>
+
+        <div id="description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse  accumsan blandit augue, sit amet sagittis dolor dapibus in. Morbi  blandit ut ante non viverra. Curabitur gravida lacus a lorem  ullamcorper, nec placerat nunc imperdiet. Proin ullamcorper, augue vel  pellentesque semper, ligula risus malesuada nisi, ut convallis velit  ipsum ac velit. Nam tristique porta magna in elementum. Vestibulum  efficitur id ipsum ut mollis. Praesent eget commodo ante.
+        </div>
+
+        <br><br>
+
+        <h2>Ultimele articole</h2>
+        <div id="all_articles"></div>
+    </div>
+</div>
+</body>
+</html>

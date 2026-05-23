@@ -1,0 +1,22 @@
+:root {
+	--purple: #2F041F;
+	--gold: #D49B4C;
+    --dark_gold: #A37641;
+	--beige: #EDC6A1;
+}
+
+body {
+    /*background-color: var(--dark_gold);*/
+    font-family: 'Fondamento', cursive;
+    padding: 0;
+    margin: 0;
+    color: var(--purple);
+}
+
+#entire_page {
+    position: relative;
+    height: 100vh;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: white;
+}

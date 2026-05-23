@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" th:href="@{/styles/main_page_css.css}">
+    <link rel="stylesheet" th:href="@{/styles/page_layout_css.css}">
+    <link rel="stylesheet" th:href="@{/styles/menu_css.css}">
+    <link rel="stylesheet" th:href="@{/styles/main_page_css.css}">
+    <link rel="stylesheet" th:href="@{/styles/group_page.css}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script th:src="@{/js/group_page.js}"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Group</title>
+</head>
+<body>
+    <div id="menu_bar">
+        <ul id="menu_content">
+            <li>
+                <div class="webiste_title"><a href="http://localhost:8080">Agora &#238;n re&#355;ea</a></div>
+            </li>
+            <li>
+                <div class="user_data">
+                    <div class="user_photo"><img th:src="@{/images/placeholder.JPG}" alt="profile_picture" width="50" height="50"></div>
+                    <div class="user_name" id="username_div">Username</div>
+<!--                    <div class="user_name" id="username_div" th:text="${user.name} + ' ' + ${user.familyName}"></div>-->
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div id="entire_page">
+        <div id="entire_content">
+            <h2 th:text="'Pagina grupului ' + ${group.name}"></h2>
+
+            <div id="all_group_details" class="flex_container">
+                <div id="group_info" class="group_info">
+                    <div id="location_container" class="group_details_container">
+                        <span id="location_span">Loca&#355;ie: </span>
+                        <div id="location_div" th:text="${group.location}">
+                        </div>
+                    </div>
+
+                    <div id="description_container" class="group_details_container">
+                        <span id="description_span">Despre noi: </span>
+                        <br>
+                        <div id="description_div" th:text="${group.description}">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="members_info" class="group_info">
+                    <div id="members_text">Membrii no&#351;tri</div>
+                    <div id="all_members"></div>
+                </div>
+
+                <script th:inline="javascript">
+                    /*<![CDATA[*/
+                    const groupId = /*[[${group.id}]]*/ 'default';
+                    const adminId = /*[[${group.admin.id}]]*/ 'default';
+
+                    load_all_members(groupId);
+                    /*]]>*/
+                </script>
+            </div>
+
+            <h3 th:text="'Ultimele articole de la ' + ${group.name}"></h3>
+            <div id="all_articles"></div>
+            <script th:inline="javascript">
+                load_all_articles(groupId);
+            </script>
+        </div>
+    </div>
+</body>
+</html>

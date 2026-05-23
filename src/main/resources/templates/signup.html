@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" th:href="@{/styles/login_css.css}">
+    <link rel="stylesheet" th:href="@{/styles/page_layout_css.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="entire_page">
+    <div id="signup_data" class="log_sign">
+        <h1>Create your account</h1>
+
+        <div class="form_line">
+            <div class="label_container"><label for="name_field">Name</label></div>
+            <input type="text" name="name" id="name_field" required>
+            <br>
+        </div>
+
+        <div class="form_line">
+            <div class="label_container"><label for="name_field">Family Name</label></div>
+            <input type="text" name="family_name" id="family_name_field" required>
+            <br>
+        </div>
+
+        <div class="form_line">
+            <div class="label_container"><label for="email_field">Email</label></div>
+            <input type="email" name="email" id="email_field" required>
+            <br>
+        </div>
+
+        <div class="form_line">
+            <div class="label_container"><label for="password_field">Password</label></div>
+            <input type="password" name="password" id="password_field" required>
+            <br>
+        </div>
+
+        <div class="form_line">
+            <div class="label_container"><label for="password_conf_field">Confirm password</label></div>
+            <input type="password" name="password_conf" id="password_conf_field" required>
+            <br>
+        </div>
+
+        <script th:src="@{/js/login.js}"></script>
+        <button id="submit_button" th:onclick="on_signup_click()">Sign up</button>
+    </div>
+</div>
+</body>
+</html>

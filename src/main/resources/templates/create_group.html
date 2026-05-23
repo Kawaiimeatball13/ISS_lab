@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create group</title>
+    <link rel="stylesheet" th:href="@{/styles/login_css.css}">
+    <link rel="stylesheet" th:href="@{/styles/page_layout_css.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+<div id="entire_page">
+    <div id="login_data" class="log_sign">
+        <h1>Creeaz&#259; un grup nou</h1>
+
+        <form method="post" action="/groups" enctype="application/x-www-form-urlencoded">
+            <div class="form_line">
+                <div class="label_container"><label for="name_field">Nume</label></div>
+                <input type="text" name="name" id="name_field" required>
+                <br>
+            </div>
+
+            <div class="form_line">
+                <div class="label_container"><label for="location_field">Loca&#355;ie</label></div>
+                <input type="text" name="location" id="location_field">
+                <br>
+            </div>
+
+            <div class="form_line">
+                <div class="label_container"><label for="description_field">Descriere</label></div>
+                <input type="text" name="description" id="description_field" size="500">
+                <br>
+            </div>
+
+            <input type="hidden" name="adminId" th:value="${user.id}">
+
+            <script th:inline="javascript">
+                /*<![CDATA[*/
+                const adminId = /*[[${user.id}]]*/ 'default';
+                /*]]>*/
+            </script>
+            <input type="submit" id="submit_button" value="Login">
+<!--            <script th:src="@{/js/create_group.js}"></script>-->
+        </form>
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit article</title>
+    <link rel="stylesheet" th:href="@{/styles/main_page_css.css}">
+    <link rel="stylesheet" th:href="@{/styles/page_layout_css.css}">
+    <link rel="stylesheet" th:href="@{/styles/menu_css.css}">
+    <link rel="stylesheet" th:href="@{/styles/main_page_css.css}">
+    <link rel="stylesheet" th:href="@{/styles/article_editor.css}">
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div id="menu_bar">
+      <ul id="menu_content">
+        <li>
+          <div class="webiste_title"><a href="http://localhost:8080">Agora &#238;n re&#355;ea</a></div>
+        </li>
+        <li>
+          <div class="user_data">
+            <div class="user_photo"><img th:src="@{/images/placeholder.JPG}" alt="profile_picture" width="50" height="50"></div>
+            <div class="user_name" id="username_div">Username</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div id="entire_page">
+      <div id="entire_content">
+
+        <br><br>
+
+        <div id="article_display">
+          <div id="article_data">
+            <input type="text" id="ftitle" name="ftitle" class="form_line" th:value="${article.title}">
+              <button type="button" id="update_button" class="form_line" th:if="${article.id != null}">Salvare modific&#259;ri</button>
+              <button type="button" id="save_button" class="form_line" th:unless="${article.id != null}">Salvare articol</button>
+          </div>
+
+          <div id="editor">
+          </div>
+            <script th:inline="javascript">
+                /*<![CDATA[*/
+                let content = /*[[${article_content.content}]]*/ 'default';
+                let title = /*[[${article_content.title}]]*/ 'default';
+                let articleId = /*[[${article.id}]]*/ 'default';
+                let authorId = /*[[${article_content.authorId}]]*/ 'default';
+                let isPublished = /*[[${article.isPublished}]]*/ 'default';
+                /*]]>*/
+
+                document.getElementById("editor").innerHTML = content;
+            </script>
+        </div>
+
+
+
+      </div>
+    </div>
+
+    <script>
+      const quill = new Quill('#editor', {
+        theme: 'snow'
+      });
+    </script>
+    <script th:src="@{/js/article_editor.js}"></script>
+</body>
+</html>

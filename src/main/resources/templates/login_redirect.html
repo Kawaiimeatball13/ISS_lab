@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>Login redirect</title>
+      <link rel="stylesheet" th:href="@{/styles/page_layout_css.css}">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&display=swap" rel="stylesheet">
+  </head>
+  <body>
+  <div id="entire_page">
+      <div id="login_data" class="log_sign">
+          <h1>User created successfully!</h1>
+          <p id="message">Please log into your account <a th:href="@{/login}">here</a>!</p>
+      </div>
+  </div>
+  </body>
+</html>

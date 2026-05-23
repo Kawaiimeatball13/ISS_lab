@@ -1,0 +1,46 @@
+#entire_content {
+    margin: 0 2% 0 2%;
+    height: 100%;
+}
+
+#title {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 7%;
+}
+
+#description {
+    text-align: justify;
+    font-weight: 400;
+    font-size: large;
+}
+
+#all_articles {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 2%;
+    padding: 0;
+}
+
+h2 {
+    font-size: xx-large;
+}
+
+.articleSquare{
+    width: 40%;
+    height: auto;
+    border: solid var(--purple) 3px;
+    color: var(--purple);
+    border-radius: 10px;
+    margin: 3.5%;
+}
+
+.articleSquare:visited {
+    color: var(--purple);
+}
+
+
+h3 {
+    font-family: 'Fondamento', cursive;
+}
