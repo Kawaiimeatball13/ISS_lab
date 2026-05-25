@@ -1,7 +1,7 @@
 <h1>Agora in retea</h1>
 <h2>Website pentru publicarea de articole culturale</h2>
 
----Features---
+<h3>Features</h3>
 
 <ol>
   <li>Scriere articol (+formatare text)
@@ -14,7 +14,6 @@
   <li>Modificare stare articol (remove, update)</li>
   <li>Creare grup</li>
   <li>Join grup (rol de membru normal sau admin)</li>
-  <li>Like-uri pentru articole</li>
 </ol>
 
 
