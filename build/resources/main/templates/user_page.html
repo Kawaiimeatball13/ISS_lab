@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Page</title>
+    <link rel="stylesheet" th:href="@{/styles/main_page_css.css}">
+    <link rel="stylesheet" th:href="@{/styles/page_layout_css.css}">
+    <link rel="stylesheet" th:href="@{/styles/menu_css.css}">
+    <link rel="stylesheet" th:href="@{/styles/main_page_css.css}">
+    <link rel="stylesheet" th:href="@{/styles/user_page.css}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script th:src="@{/js/user_page.js}"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="menu_bar">
+    <ul id="menu_content">
+      <li>
+        <div class="webiste_title"><a href="http://localhost:8080">Agora &#238;n re&#355;ea</a></div>
+      </li>
+      <li>
+        <div class="user_data">
+          <div class="user_photo"><img th:src="@{/images/placeholder.JPG}" alt="profile_picture" width="50" height="50"></div>
+          <div class="user_name" id="username_div" th:text="${user.name} + ' ' + ${user.familyName}"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="entire_page">
+    <div id="entire_content">
+      <h2 th:text="'Salut, ' + ${user.name} + '!'"></h2>
+
+      <br>
+
+      <h3>Articolele tale</h3>
+
+        <div class="flex_container">
+            <div id="article_side">
+              <div id="user_articles">
+              </div>
+                <script th:src="@{/js/load_user_articles.js}"></script>
+                <script th:inline="javascript">
+                    /*<![CDATA[*/
+                    const userId = /*[[${user.id}]]*/ 'default';
+                    /*]]>*/
+
+                    get_user_articles(userId);
+                </script>
+
+                <div id="create_article_div">
+                    Ai inspira&#355;ie pentru ceva nou?
+                    <button id="create_article_button" onclick="location.href = 'http://localhost:8080/articles/create'">Creeaz&#259; un articol</button>
+                </div>
+            </div>
+
+            <div id="group_side">
+                <h3>Grupul t&#259;u</h3>
+                <div th:if="${user.team != null}" th:id="display_group_info_div" class="group_div">
+                    <div id="group_name" th:text="${user.team.name}"></div>
+                    <div id="admin_name" th:text="'Creat de: ' + ${user.team.admin.name} + ' ' + ${user.team.admin.familyName}"></div>
+                    <div id="group_members"></div>
+                    <button id="view_group_button" th:attr="onclick=|location.href = 'http://localhost:8080/groups/' + '${user.team.id}'|">Vezi grupul</button>
+                </div>
+                <div th:unless="${user.team != null}" th:id="join_group_div" class="no_group_div">
+                    <div>Nu faci parte dintr-un grup?
+                        <a>Al&#259;tur&#259;-te unui grup deja existent</a> sau <a>creeaz&#259;-&#355;i propriul grup!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Log In</title>
+    <link rel="stylesheet" th:href="@{/styles/login_css.css}">
+    <link rel="stylesheet" th:href="@{/styles/page_layout_css.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="entire_page">
+    <div id="login_data" class="log_sign">
+        <h1>Log into your account</h1>
+
+        <form th:action="@{/login}" method="post">
+            <div class="form_line">
+                <div class="label_container"><label for="email_field">Email</label></div>
+                <input type="text" name="username" id="email_field" required>
+                <br>
+            </div>
+
+            <div class="form_line">
+                <div class="label_container"><label for="password_field">Password</label></div>
+                <input type="password" name="password" id="password_field" required>
+                <br>
+            </div>
+
+            <input type="submit" id="submit_button" value="Login">
+        </form>
+        <p id="signup_instead">Don't have an account? Sign up <a th:href="@{/signup}">here</a>!</p>
+
+        <div th:if="${param.error}">
+            Invalid username and password.
+        </div>
+    </div>
+</div>
+</body>
+</html>

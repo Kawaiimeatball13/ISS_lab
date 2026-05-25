@@ -1,0 +1,108 @@
+:root {
+	--purple: #2F041F;
+	--gold: #D49B4C;
+    --dark_gold: #A37641;
+	--beige: #EDC6A1;
+}
+
+.log_sign {
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    right: 25%;
+    bottom: 20%;
+    
+    box-sizing: border-box;
+    padding: 2.5% 7% 2.5% 7%;
+    
+    height: auto;
+    width: 50%;
+    min-width: 200px;
+    
+    border: solid 7px var(--purple);
+    border-radius: 25px;
+    
+    overflow: auto;
+}
+
+.log_sign h1 {
+    text-align: center;
+    padding-bottom: 9%;
+    font-size: 40px;
+    color: var(--purple);
+}
+
+.form_line {
+    font-family: 'Fondamento', cursive;
+    width: 100%;
+    margin-bottom: 1%;
+    color: var(--purple);
+}
+
+.label_container {
+    display: inline-block;
+    width: 25%;
+    font-size: large;
+}
+
+.form_line label {
+    font-weight: 600;
+}
+
+.form_line input {
+    width: 65%;
+    margin-left: 3%;
+    border-radius: 10px;
+    border: solid 2px;
+    font-size: large;
+    font-family: 'Fondamento', cursive;
+}
+
+.log_sign input[type="submit"], button {
+    margin-left: 30%;
+    margin-top: 7%;
+    margin-bottom: 3%;
+    width: 40%;
+    padding: 2% 3% 3% 3%;
+    border-style: solid;
+    border-radius: 15px;
+    border-width: medium;
+    border-color: var(--gold);
+    background-color: var(--beige);
+    
+    font-family: 'Fondamento', cursive;
+    font-size: medium;
+    font-weight: 600;
+}
+
+input:focus, button:focus {
+    outline: solid medium var(--gold);
+    border-color: var(--dark_gold);
+}
+
+
+input[type="submit"]:hover, button:hover {
+    border-style: solid;
+    border-color: var(--dark_gold);
+}
+
+input[type="submit"]:active, button:active {
+    /*box-shadow: 0 4px 7px 0 var(--purple);*/
+    transform: translateY(2px);
+}
+
+
+#signup_instead {
+    font-size: large;
+    color: var(--purple);
+    padding: 3% 0 0 0;
+}
+
+a {
+    font-weight: 600;
+    color: var(--gold);
+}
+
+a:hover {
+    color: var(--dark_gold);
+}
